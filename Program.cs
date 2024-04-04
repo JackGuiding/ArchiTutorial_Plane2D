@@ -12,32 +12,38 @@ namespace Tutorial2D {
     // 对象生成、存储、遍历
     public static class Program {
 
+        // 每个持续程序:
+        // 1. 用户输入
+        // 2. 逻辑处理
+        // 3. (大多数)绘制
         public static void Main() {
 
-            Raylib.InitWindow(800, 450, "Tutorial 2D");
+            Raylib.InitWindow(1280, 720, "Tutorial 2D");
+            Raylib.SetTargetFPS(60);
 
             // Context
             GameContext ctx = new GameContext();
 
-            // 生成飞机
-            PlaneEntity plane = PlaneDomain.Spawn(ctx, new Vector2(0, 0), 5, new Vector2(50, 50), Color.Blue);
-            PlaneEntity plane2 = PlaneDomain.Spawn(ctx, new Vector2(100, 100), 5, new Vector2(50, 50), Color.Yellow);
-            PlaneEntity plane3 = PlaneDomain.Spawn(ctx, new Vector2(180, 180), 5, new Vector2(50, 50), Color.Yellow);
+            // 进入游戏
+            EnterGame(ctx);
 
             while (!Raylib.WindowShouldClose()) {
 
                 Raylib.BeginDrawing();
 
+                float dt = Raylib.GetFrameTime(); // 1 / 60
+
                 // 背景色
                 Raylib.ClearBackground(Color.RayWhite);
 
+                // 1. 用户输入
+
+                // 2. 飞机逻辑 / 子弹逻辑 ....
+                PlaneController.Tick(ctx, dt); // 逻辑处理
+
+                // 3. 画飞机 / 画子弹 ....
                 // 画飞机
-                // 遍历
-                List<PlaneEntity> allPlane = ctx.planeRepository.GetAll();
-                for (int i = 0; i < allPlane.Count; i += 1) {
-                    PlaneEntity p = allPlane[i];
-                    Raylib.DrawRectangleV(p.pos, p.size, p.color);
-                }
+                PlaneController.DrawAll(ctx);
 
                 Raylib.EndDrawing();
 
@@ -46,5 +52,13 @@ namespace Tutorial2D {
             Raylib.CloseWindow();
 
         }
+
+        static void EnterGame(GameContext ctx) {
+            // 生成飞机
+            PlaneDomain.Spawn(ctx, new Vector2(0, 0), 25, new Vector2(50, 50), Color.Blue);
+            PlaneDomain.Spawn(ctx, new Vector2(100, 100), 25, new Vector2(50, 50), Color.Yellow);
+            PlaneDomain.Spawn(ctx, new Vector2(180, 180), 25, new Vector2(50, 50), Color.Red);
+        }
+
     }
 }
