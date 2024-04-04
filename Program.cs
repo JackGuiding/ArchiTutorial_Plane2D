@@ -37,6 +37,8 @@ namespace Tutorial2D {
                 Raylib.ClearBackground(Color.RayWhite);
 
                 // 1. 用户输入
+                InputController.Tick(ctx, dt);
+                Raylib.DrawText($"{ctx.input.moveDir}", 10, 10, 20, Color.Black);
 
                 // 2. 飞机逻辑 / 子弹逻辑 ....
                 PlaneController.Tick(ctx, dt); // 逻辑处理
