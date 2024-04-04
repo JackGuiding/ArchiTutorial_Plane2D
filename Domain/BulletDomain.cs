@@ -22,12 +22,18 @@ namespace Tutorial2D {
         }
 
         public static void CheckCollision(GameContext ctx, BulletEntity bullet, float dt) {
+            // 注: 正序遍历时不能移除 List 里的元素
+            // 因此处理方式:
+            // 或 1. 倒序遍历
+            // 或 2. 复制一份 List / 或者复制数组
             List<PlaneEntity> planes = ctx.planeRepository.GetAll();
-            for (int i = 0; i < planes.Count; i += 1) {
+
+            // 倒序遍历
+            for (int i = planes.Count - 1; i >= 0; i -= 1) {
                 PlaneEntity plane = planes[i];
                 bool isCollision = PhysicsUtil.CheckCollision(bullet.shapeType, bullet.pos, bullet.size, plane.shapeType, plane.pos, plane.size);
                 if (isCollision) {
-                    
+
                     if (plane.isPlayer == bullet.isPlayer) {
                         continue;
                     }
@@ -35,8 +41,10 @@ namespace Tutorial2D {
                     // 碰撞: 
                     // 飞机死亡
                     PlaneDomain.Unspawn(ctx, plane);
+
                     // 子弹消失
                     BulletDomain.Unspawn(ctx, bullet);
+
                 }
             }
         }
