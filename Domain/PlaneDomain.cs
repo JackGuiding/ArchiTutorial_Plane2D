@@ -31,10 +31,17 @@ namespace Tutorial2D {
             plane.Move(moveDir, dt);
         }
 
-        public static void Fire(GameContext ctx, PlaneEntity plane) {
+        public static void FireByInput(GameContext ctx, PlaneEntity plane) {
             // 数据建模: 
             // 从哪里: plane.pos
             // 到哪里: plane.faceDir 一个方向, (一个目标)
+
+            InputEntity input = ctx.input;
+            if (input.isFire) {
+                // 发射子弹
+                Vector2 from = plane.pos;
+                BulletDomain.Spawn(ctx, plane.isPlayer, from, plane.faceDir, 50, new Vector2(10, 10), Color.Red);
+            }
         }
 
     }

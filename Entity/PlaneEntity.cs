@@ -23,7 +23,9 @@ namespace Tutorial2D {
 
         public void Move(Vector2 dir, float dt) {
             pos += dir * moveSpeed * dt;
-            faceDir = dir;
+            if (dir != Vector2.Zero) {
+                faceDir = dir;
+            }
         }
 
     }

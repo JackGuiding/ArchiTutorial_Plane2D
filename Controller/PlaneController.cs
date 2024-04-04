@@ -15,6 +15,7 @@ namespace Tutorial2D {
                 if (plane.isPlayer) {
                     // 根据输入移动
                     PlaneDomain.MoveByInput(ctx, plane, dt);
+                    PlaneDomain.FireByInput(ctx, plane);
                 } else {
                     // 自动移动
                     PlaneDomain.AutoMove(plane, dt);
