@@ -16,8 +16,13 @@ namespace Tutorial2D {
 
             Raylib.InitWindow(800, 450, "Tutorial 2D");
 
+            // Context
+            GameContext ctx = new GameContext();
+
             // 生成飞机
-            PlaneEntity plane = GameFactory.Plane_Create(new Vector2(0, 0), 5, new Vector2(50, 50), Color.Blue);
+            PlaneEntity plane = PlaneDomain.Spawn(ctx, new Vector2(0, 0), 5, new Vector2(50, 50), Color.Blue);
+            PlaneEntity plane2 = PlaneDomain.Spawn(ctx, new Vector2(100, 100), 5, new Vector2(50, 50), Color.Yellow);
+            PlaneEntity plane3 = PlaneDomain.Spawn(ctx, new Vector2(180, 180), 5, new Vector2(50, 50), Color.Yellow);
 
             while (!Raylib.WindowShouldClose()) {
 
@@ -27,7 +32,12 @@ namespace Tutorial2D {
                 Raylib.ClearBackground(Color.RayWhite);
 
                 // 画飞机
-                Raylib.DrawRectangleV(plane.pos, plane.size, plane.color);
+                // 遍历
+                List<PlaneEntity> allPlane = ctx.planeRepository.GetAll();
+                for (int i = 0; i < allPlane.Count; i += 1) {
+                    PlaneEntity p = allPlane[i];
+                    Raylib.DrawRectangleV(p.pos, p.size, p.color);
+                }
 
                 Raylib.EndDrawing();
 

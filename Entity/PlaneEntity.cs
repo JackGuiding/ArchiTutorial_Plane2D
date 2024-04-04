@@ -7,6 +7,7 @@ namespace Tutorial2D {
     public class PlaneEntity {
 
         // Logic
+        public int id;
         public Vector2 pos;
         public float moveSpeed;
         public Vector2 size;
