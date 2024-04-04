@@ -8,6 +8,7 @@ namespace Tutorial2D {
 
         public int id;
         public Vector2 pos;
+        public Vector2 moveDir; // Direction
         public float moveSpeed;
 
         public Vector2 size;

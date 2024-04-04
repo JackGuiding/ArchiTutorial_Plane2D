@@ -6,6 +6,17 @@ namespace Tutorial2D {
 
     public static class BulletController {
 
+        public static void Tick(GameContext ctx, float dt) {
+            List<BulletEntity> all = ctx.bulletRepository.GetAll();
+            for (int i = 0; i < all.Count; i += 1) {
+                BulletEntity bullet = all[i];
+
+                // 飞行
+                BulletDomain.Fly(ctx, bullet, dt);
+
+            }
+        }
+
         public static void DrawAll(GameContext ctx) {
             List<BulletEntity> all = ctx.bulletRepository.GetAll();
             for (int i = 0; i < all.Count; i += 1) {

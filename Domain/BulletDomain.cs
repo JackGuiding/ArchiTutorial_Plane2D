@@ -6,10 +6,15 @@ namespace Tutorial2D {
 
     public static class BulletDomain {
 
-        public static BulletEntity Spawn(GameContext ctx, bool isPlayer, Vector2 pos, float moveSpeed, Vector2 size, Color color) {
-            BulletEntity bullet = GameFactory.Bullet_Create(ctx.idService, isPlayer, pos, moveSpeed, size, color);
+        public static BulletEntity Spawn(GameContext ctx, bool isPlayer, Vector2 pos, Vector2 moveDir, float moveSpeed, Vector2 size, Color color) {
+            BulletEntity bullet = GameFactory.Bullet_Create(ctx.idService, isPlayer, pos, moveDir, moveSpeed, size, color);
             ctx.bulletRepository.Add(bullet);
             return bullet;
+        }
+
+        public static void Fly(GameContext ctx, BulletEntity bullet, float dt) {
+            bullet.pos += bullet.moveDir * bullet.moveSpeed * dt;
+            // bullet.pos = bullet.pos + bullet.moveDir * bullet.moveSpeed * dt;
         }
 
     }
