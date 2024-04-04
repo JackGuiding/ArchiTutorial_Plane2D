@@ -14,6 +14,7 @@ namespace Tutorial2D {
             // Raylib.IsKeyPressed(KeyboardKey.A); 按下
             // Raylib.IsKeyReleased(KeyboardKey.A); 弹起
 
+            // ==== Move ====
             // if 里必须是 bool
             Vector2 moveDirTmp = Vector2.Zero;
             if (Raylib.IsKeyDown(KeyboardKey.A)) {
@@ -29,6 +30,9 @@ namespace Tutorial2D {
             }
 
             input.moveDir = moveDirTmp;
+
+            // ==== Fire ====
+            input.isFire = Raylib.IsKeyPressed(KeyboardKey.Space);
 
         }
 

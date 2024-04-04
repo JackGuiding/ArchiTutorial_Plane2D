@@ -7,7 +7,7 @@ namespace Tutorial2D {
     // 小飞机:
     // 1. 生成飞机、移动飞机、绘制飞机
     // 2. 生成子弹、移动子弹、绘制子弹
-    // 3. 子弹与飞机的关系
+    // 3. 子弹与飞机的关系: 发射、击中
 
     // 对象生成、存储、遍历
     public static class Program {
@@ -39,7 +39,8 @@ namespace Tutorial2D {
 
                 // 1. 用户输入
                 InputController.Tick(ctx, dt);
-                Raylib.DrawText($"{ctx.input.moveDir}", 10, 10, 20, Color.Black);
+                Raylib.DrawText($"Move: {ctx.input.moveDir}", 10, 10, 20, Color.Black);
+                Raylib.DrawText($"Fire: {ctx.input.isFire}", 10, 30, 20, Color.Black);
 
                 // 2. 飞机逻辑 / 子弹逻辑 ....
                 PlaneController.Tick(ctx, dt); // 逻辑处理

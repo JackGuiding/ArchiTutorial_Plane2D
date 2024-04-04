@@ -9,6 +9,8 @@ namespace Tutorial2D {
         // public float up; // 负代表上 正代表下
         // public float right; // 负代表左 正代表右
 
+        public bool isFire;
+
     }
 
 }
