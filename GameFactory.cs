@@ -16,5 +16,16 @@ namespace Tutorial2D {
             return plane;
         }
 
+        public static BulletEntity Bullet_Create(IDService idService, bool isPlayer, Vector2 pos, float moveSpeed, Vector2 size, Color color) {
+            BulletEntity bullet = new BulletEntity();
+            bullet.id = idService.bulletIDRecord++;
+            bullet.pos = pos;
+            bullet.moveSpeed = moveSpeed;
+            bullet.size = size;
+            bullet.color = color;
+            return bullet;
+        }
+
     }
+
 }

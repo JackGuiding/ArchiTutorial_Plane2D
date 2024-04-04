@@ -6,6 +6,7 @@ namespace Tutorial2D {
         // 存储
         public InputEntity input;
         public PlaneRepository planeRepository;
+        public BulletRepository bulletRepository;
 
         // Service
         public IDService idService;
@@ -13,6 +14,7 @@ namespace Tutorial2D {
         public GameContext() {
             input = new InputEntity();
             planeRepository = new PlaneRepository();
+            bulletRepository = new BulletRepository();
             idService = new IDService();
         }
 
