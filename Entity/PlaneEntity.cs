@@ -30,6 +30,14 @@ namespace Tutorial2D {
             }
         }
 
+        public void DrawShape() {
+            // 机身
+            DrawUtil.DrawShape(shapeType, pos, size, color);
+
+            // 枪口
+            Raylib.DrawLineV(pos, pos + faceDir * size.X, Color.Red);
+        }
+
     }
 
 }

@@ -22,6 +22,9 @@ namespace Tutorial2D {
             InputEntity input = ctx.input;
             Vector2 moveDir = input.moveDir;
 
+            // (1, 1) => (0.7, 0.7)
+            moveDir = Raymath.Vector2Normalize(moveDir);
+
             // 单个数值
             // plane.pos.X += moveDir.X * plane.moveSpeed * dt;
             // plane.pos.Y += moveDir.Y * plane.moveSpeed * dt;

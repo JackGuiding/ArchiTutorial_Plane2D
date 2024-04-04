@@ -19,6 +19,10 @@ namespace Tutorial2D {
 
         public BulletEntity() { }
 
+        public void DrawShape() {
+            DrawUtil.DrawShape(shapeType, pos, size, color);
+        }
+
     }
 
 }
