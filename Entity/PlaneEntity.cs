@@ -8,6 +8,7 @@ namespace Tutorial2D {
 
         // Logic
         public int id;
+        public bool isPlayer;
         public Vector2 pos;
         public float moveSpeed;
         public Vector2 size;

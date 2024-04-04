@@ -58,9 +58,9 @@ namespace Tutorial2D {
 
         static void EnterGame(GameContext ctx) {
             // 生成飞机
-            PlaneDomain.Spawn(ctx, new Vector2(0, 0), 25, new Vector2(50, 50), Color.Blue);
-            PlaneDomain.Spawn(ctx, new Vector2(100, 100), 25, new Vector2(50, 50), Color.Yellow);
-            PlaneDomain.Spawn(ctx, new Vector2(180, 180), 25, new Vector2(50, 50), Color.Red);
+            PlaneDomain.Spawn(ctx, true, new Vector2(0, 0), 25, new Vector2(50, 50), Color.Blue);
+            PlaneDomain.Spawn(ctx, false, new Vector2(100, 100), 25, new Vector2(50, 50), Color.Yellow);
+            PlaneDomain.Spawn(ctx, false, new Vector2(180, 180), 25, new Vector2(50, 50), Color.Red);
         }
 
     }

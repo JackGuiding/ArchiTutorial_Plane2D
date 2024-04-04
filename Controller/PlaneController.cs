@@ -11,11 +11,13 @@ namespace Tutorial2D {
             for (int i = 0; i < all.Count; i += 1) {
                 PlaneEntity plane = all[i];
 
-                // 根据输入移动
-                PlaneDomain.MoveByInput(ctx, plane, dt);
-
-                // 自动移动
-                // PlaneDomain.AutoMove(plane, dt);
+                if (plane.isPlayer) {
+                    // 根据输入移动
+                    PlaneDomain.MoveByInput(ctx, plane, dt);
+                } else {
+                    // 自动移动
+                    PlaneDomain.AutoMove(plane, dt);
+                }
 
                 // 发射子弹
 
