@@ -11,6 +11,7 @@ namespace Tutorial2D {
             plane.isPlayer = isPlayer;
             plane.pos = pos;
             plane.moveSpeed = moveSpeed;
+            plane.faceDir = new Vector2(1, 0);
             plane.size = size;
             plane.color = color;
             return plane;

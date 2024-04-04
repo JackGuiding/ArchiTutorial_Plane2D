@@ -21,13 +21,20 @@ namespace Tutorial2D {
             // plane.pos.X += moveDir.X * plane.moveSpeed * dt;
             // plane.pos.Y += moveDir.Y * plane.moveSpeed * dt;
 
-            // 矢量
-            plane.pos += moveDir * plane.moveSpeed * dt;
+            plane.Move(moveDir, dt);
 
         }
 
         public static void AutoMove(PlaneEntity plane, float dt) {
-            plane.pos.X += plane.moveSpeed * dt;
+            // 自动向右
+            Vector2 moveDir = new Vector2(1, 0);
+            plane.Move(moveDir, dt);
+        }
+
+        public static void Fire(GameContext ctx, PlaneEntity plane) {
+            // 数据建模: 
+            // 从哪里: plane.pos
+            // 到哪里: plane.faceDir 一个方向, (一个目标)
         }
 
     }

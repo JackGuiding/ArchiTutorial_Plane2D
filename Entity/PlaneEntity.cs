@@ -11,6 +11,7 @@ namespace Tutorial2D {
         public bool isPlayer;
         public Vector2 pos;
         public float moveSpeed;
+        public Vector2 faceDir;
         public Vector2 size;
 
         // Draw
@@ -18,6 +19,11 @@ namespace Tutorial2D {
 
         public PlaneEntity() {
             // 所有默认值都是0
+        }
+
+        public void Move(Vector2 dir, float dt) {
+            pos += dir * moveSpeed * dt;
+            faceDir = dir;
         }
 
     }
