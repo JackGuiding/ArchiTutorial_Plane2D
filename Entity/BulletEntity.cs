@@ -11,10 +11,12 @@ namespace Tutorial2D {
         public Vector2 moveDir; // Direction
         public float moveSpeed;
 
+        public ShapeType shapeType;
         public Vector2 size;
+
         public Color color;
 
-        public BulletEntity() {}
+        public BulletEntity() { }
 
     }
 

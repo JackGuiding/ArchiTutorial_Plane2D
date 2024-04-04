@@ -61,12 +61,9 @@ namespace Tutorial2D {
         static void EnterGame(GameContext ctx) {
 
             // 生成飞机
-            PlaneDomain.Spawn(ctx, true, new Vector2(0, 0), 25, new Vector2(50, 50), Color.Blue);
-            PlaneDomain.Spawn(ctx, false, new Vector2(100, 100), 25, new Vector2(50, 50), Color.Yellow);
-            PlaneDomain.Spawn(ctx, false, new Vector2(180, 180), 25, new Vector2(50, 50), Color.Red);
-
-            // 测试: 生成子弹
-            BulletDomain.Spawn(ctx, true, new Vector2(640, 360), new Vector2(0, -1), 100, new Vector2(10, 10), Color.Black);
+            PlaneDomain.Spawn(ctx, true, new Vector2(0, 0), 25, ShapeType.Rectangle, new Vector2(50, 50), Color.Blue);
+            PlaneDomain.Spawn(ctx, false, new Vector2(100, 100), 25, ShapeType.Circle, new Vector2(25, 25), Color.Yellow);
+            PlaneDomain.Spawn(ctx, false, new Vector2(100, 100), 25, ShapeType.Rectangle, new Vector2(50, 50), Color.Red);
 
         }
 

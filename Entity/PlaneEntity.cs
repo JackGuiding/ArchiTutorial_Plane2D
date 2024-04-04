@@ -12,6 +12,8 @@ namespace Tutorial2D {
         public Vector2 pos;
         public float moveSpeed;
         public Vector2 faceDir;
+
+        public ShapeType shapeType;
         public Vector2 size;
 
         // Draw

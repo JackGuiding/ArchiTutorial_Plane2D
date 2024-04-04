@@ -6,8 +6,8 @@ namespace Tutorial2D {
     // 飞机逻辑
     public static class PlaneDomain {
 
-        public static PlaneEntity Spawn(GameContext ctx, bool isPlayer, Vector2 pos, float moveSpeed, Vector2 size, Color color) {
-            PlaneEntity plane = GameFactory.Plane_Create(ctx.idService, isPlayer, pos, moveSpeed, size, color);
+        public static PlaneEntity Spawn(GameContext ctx, bool isPlayer, Vector2 pos, float moveSpeed, ShapeType shapeType, Vector2 size, Color color) {
+            PlaneEntity plane = GameFactory.Plane_Create(ctx.idService, isPlayer, pos, moveSpeed, shapeType, size, color);
             ctx.planeRepository.Add(plane);
             return plane;
         }
@@ -40,7 +40,7 @@ namespace Tutorial2D {
             if (input.isFire) {
                 // 发射子弹
                 Vector2 from = plane.pos;
-                BulletDomain.Spawn(ctx, plane.isPlayer, from, plane.faceDir, 50, new Vector2(10, 10), Color.Red);
+                BulletDomain.Spawn(ctx, plane.isPlayer, from, plane.faceDir, 50, ShapeType.Circle, new Vector2(10, 10), Color.Red);
             }
         }
 

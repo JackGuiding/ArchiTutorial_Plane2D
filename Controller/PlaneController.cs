@@ -32,7 +32,7 @@ namespace Tutorial2D {
             List<PlaneEntity> all = ctx.planeRepository.GetAll();
             for (int i = 0; i < all.Count; i += 1) {
                 PlaneEntity plane = all[i];
-                Raylib.DrawRectangleV(plane.pos, plane.size, plane.color);
+                DrawUtil.DrawShape(plane.shapeType, plane.pos, plane.size, plane.color);
             }
         }
 

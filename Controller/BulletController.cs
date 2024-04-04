@@ -21,7 +21,7 @@ namespace Tutorial2D {
             List<BulletEntity> all = ctx.bulletRepository.GetAll();
             for (int i = 0; i < all.Count; i += 1) {
                 BulletEntity bullet = all[i];
-                Raylib.DrawRectangleV(bullet.pos, bullet.size, bullet.color);
+                DrawUtil.DrawShape(bullet.shapeType, bullet.pos, bullet.size, bullet.color);
             }
         }
     }

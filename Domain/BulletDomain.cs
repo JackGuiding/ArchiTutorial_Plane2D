@@ -6,8 +6,8 @@ namespace Tutorial2D {
 
     public static class BulletDomain {
 
-        public static BulletEntity Spawn(GameContext ctx, bool isPlayer, Vector2 pos, Vector2 moveDir, float moveSpeed, Vector2 size, Color color) {
-            BulletEntity bullet = GameFactory.Bullet_Create(ctx.idService, isPlayer, pos, moveDir, moveSpeed, size, color);
+        public static BulletEntity Spawn(GameContext ctx, bool isPlayer, Vector2 pos, Vector2 moveDir, float moveSpeed, ShapeType shapeType, Vector2 size, Color color) {
+            BulletEntity bullet = GameFactory.Bullet_Create(ctx.idService, isPlayer, pos, moveDir, moveSpeed, shapeType, size, color);
             ctx.bulletRepository.Add(bullet);
             return bullet;
         }
