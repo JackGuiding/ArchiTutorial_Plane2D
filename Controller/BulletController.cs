@@ -14,6 +14,9 @@ namespace Tutorial2D {
                 // 飞行
                 BulletDomain.Fly(ctx, bullet, dt);
 
+                // 碰撞检测
+                BulletDomain.CheckCollision(ctx, bullet, dt);
+
             }
         }
 

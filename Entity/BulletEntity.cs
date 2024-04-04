@@ -7,6 +7,7 @@ namespace Tutorial2D {
     public class BulletEntity {
 
         public int id;
+        public bool isPlayer;
         public Vector2 pos;
         public Vector2 moveDir; // Direction
         public float moveSpeed;

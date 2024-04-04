@@ -21,6 +21,7 @@ namespace Tutorial2D {
         public static BulletEntity Bullet_Create(IDService idService, bool isPlayer, Vector2 pos, Vector2 moveDir, float moveSpeed, ShapeType shapeType, Vector2 size, Color color) {
             BulletEntity bullet = new BulletEntity();
             bullet.id = idService.bulletIDRecord++;
+            bullet.isPlayer = isPlayer;
             bullet.pos = pos;
             bullet.moveDir = moveDir;
             bullet.moveSpeed = moveSpeed;

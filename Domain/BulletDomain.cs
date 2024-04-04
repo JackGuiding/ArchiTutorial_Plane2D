@@ -12,9 +12,33 @@ namespace Tutorial2D {
             return bullet;
         }
 
+        public static void Unspawn(GameContext ctx, BulletEntity bullet) {
+            ctx.bulletRepository.Remove(bullet);
+        }
+
         public static void Fly(GameContext ctx, BulletEntity bullet, float dt) {
             bullet.pos += bullet.moveDir * bullet.moveSpeed * dt;
             // bullet.pos = bullet.pos + bullet.moveDir * bullet.moveSpeed * dt;
+        }
+
+        public static void CheckCollision(GameContext ctx, BulletEntity bullet, float dt) {
+            List<PlaneEntity> planes = ctx.planeRepository.GetAll();
+            for (int i = 0; i < planes.Count; i += 1) {
+                PlaneEntity plane = planes[i];
+                bool isCollision = PhysicsUtil.CheckCollision(bullet.shapeType, bullet.pos, bullet.size, plane.shapeType, plane.pos, plane.size);
+                if (isCollision) {
+                    
+                    if (plane.isPlayer == bullet.isPlayer) {
+                        continue;
+                    }
+
+                    // 碰撞: 
+                    // 飞机死亡
+                    PlaneDomain.Unspawn(ctx, plane);
+                    // 子弹消失
+                    BulletDomain.Unspawn(ctx, bullet);
+                }
+            }
         }
 
     }

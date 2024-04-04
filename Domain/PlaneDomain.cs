@@ -12,6 +12,11 @@ namespace Tutorial2D {
             return plane;
         }
 
+        public static void Unspawn(GameContext ctx, PlaneEntity plane) {
+            // 移除后, 循环就访问不到了
+            ctx.planeRepository.Remove(plane);
+        }
+
         public static void MoveByInput(GameContext ctx, PlaneEntity plane, float dt) {
 
             InputEntity input = ctx.input;
