@@ -20,6 +20,7 @@ namespace Tutorial2D {
 
             Raylib.InitWindow(1280, 720, "Tutorial 2D");
             Raylib.SetTargetFPS(60);
+            Raylib.SetExitKey(KeyboardKey.Null);
 
             // Context
             GameContext ctx = new GameContext();

@@ -12,6 +12,20 @@ namespace Tutorial2D {
             return plane;
         }
 
+        public static void MoveByInput(GameContext ctx, PlaneEntity plane, float dt) {
+
+            InputEntity input = ctx.input;
+            Vector2 moveDir = input.moveDir;
+
+            // 单个数值
+            // plane.pos.X += moveDir.X * plane.moveSpeed * dt;
+            // plane.pos.Y += moveDir.Y * plane.moveSpeed * dt;
+
+            // 矢量
+            plane.pos += moveDir * plane.moveSpeed * dt;
+
+        }
+
         public static void AutoMove(PlaneEntity plane, float dt) {
             plane.pos.X += plane.moveSpeed * dt;
         }
